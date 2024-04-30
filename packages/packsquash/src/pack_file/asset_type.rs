@@ -189,7 +189,7 @@ impl PackFileAssetType {
 			Self::MinecraftTextureMetadataWithComments => {
 				compile_hardcoded_pack_file_glob_pattern("assets/*/textures/**/?*.mcmetac")
 			}
-			Self::MinecraftMetadata => compile_hardcoded_pack_file_glob_pattern("pack.mcmeta"),
+			Self::MinecraftMetadata => compile_hardcoded_pack_file_glob_pattern("pack.mc1meta"),
 			Self::MinecraftMetadataWithComments => {
 				compile_hardcoded_pack_file_glob_pattern("pack.mcmetac")
 			}
@@ -203,7 +203,8 @@ impl PackFileAssetType {
 				// vanilla block and item models as such, with few false positives. Mods can
 				// define a subfolder like "modname_block" to signal that their models are
 				// not to be parsed as vanilla models
-				compile_hardcoded_pack_file_glob_pattern("assets/*/models/{block,item}/**/?*.json")
+				compile_hardcoded_pack_file_glob_pattern("assets/*/models/{block,item}/**/?*.json"),
+				compile_hardcoded_pack_file_glob_pattern("pack.mcmeta")
 			}
 			Self::MinecraftModelWithComments => {
 				compile_hardcoded_pack_file_glob_pattern("assets/*/models/{block,item}/**/?*.jsonc")
